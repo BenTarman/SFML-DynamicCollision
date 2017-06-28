@@ -56,8 +56,8 @@ int main()
 		{
 
 			dynamicBody.move(1, 0);
-			pushedLeft = true;
-			pushedRight = false;
+			pushedLeft = false;
+			pushedRight = true;
 			//release push
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && pushedRight)
 			{
