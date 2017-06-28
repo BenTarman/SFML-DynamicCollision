@@ -76,7 +76,7 @@ int main()
 			pushedLeft = true;
 			pushedRight = false;
 			//release push
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && pushedRight)
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && pushedLeft)
 			{
 				player.setPosition(player.getPosition().x - 1.0, player.getPosition().y);
 				pushedLeft = false;
