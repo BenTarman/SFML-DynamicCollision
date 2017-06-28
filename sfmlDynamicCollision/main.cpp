@@ -33,8 +33,7 @@ int main()
 	dynamicBody.setFillColor(sf::Color::Blue);
 
 	//bool (i think you need two bools to make them both independent events)
-	bool pushedLeft = false;
-	bool pushedRight = false;
+
 
 
 	//start game loop
@@ -56,14 +55,12 @@ int main()
 		{
 
 			dynamicBody.move(1, 0);
-			pushedLeft = false;
-			pushedRight = true;
+			
 			//release push
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && pushedRight)
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) )
 			{
 				player.setPosition(player.getPosition().x - 1.0, player.getPosition().y);
-				pushedLeft = false;
-				pushedRight = false;
+				
 			}
 
 		}
@@ -73,21 +70,21 @@ int main()
 		{
 
 			dynamicBody.move(-1, 0);
-			pushedLeft = true;
-			pushedRight = false;
+		
 			//release push
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && pushedLeft)
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) )
 			{
-				player.setPosition(player.getPosition().x - 1.0, player.getPosition().y);
-				pushedLeft = false;
-				pushedRight = false;
+				player.setPosition(player.getPosition().x + 1.0, player.getPosition().y);
+				
 			}
 
 		}
 
 
 		//jump on top of box
-		if (player.getPosition().y >= (dynamicBody.getPosition().y - dynamicBody.getSize().y) && player.getPosition().y < ground && (player.getPosition().x - player.getSize().x) <= dynamicBody.getPosition().x && player.getPosition().x >= (dynamicBody.getPosition().x - dynamicBody.getSize().x))
+		if ((player.getPosition().y >= (dynamicBody.getPosition().y - dynamicBody.getSize().y) && player.getPosition().y < ground) && 
+			
+			(player.getPosition().x - player.getSize().x) < dynamicBody.getPosition().x && player.getPosition().x > (dynamicBody.getPosition().x - dynamicBody.getSize().x))
 		{
 			ground = 550 - dynamicBody.getSize().y;
 		}
